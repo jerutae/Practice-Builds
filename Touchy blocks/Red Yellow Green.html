@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Color game</title>
+    <style>
+        .container{
+            padding: 15rem 15rem 0 15rem;
+            margin-left: 250px;
+        }
+        .Colorsquare{
+            height: 200px;
+            width: 200px;
+        }
+        #red{
+            background-color: red;
+        }
+        #yellow{
+            background-color: yellow;
+        }
+        #green{
+            background-color: green;
+        }
+        .clear{
+            margin-left: 47rem;
+            margin-top: 47px;
+            
+        }
+     
+    </style>
+</head>
+<body>
+    <div class="container" style="display:flex;">
+        <div>
+            <button class="Colorsquare "id="red"></button>
+            <button class="Colorsquare "id="yellow"></button>
+            <button class="Colorsquare "id="green"></button>
+        </div>
+    </div>
+    <div class="clear">
+        <button id ="cleargame">Clear game</button>
+    </div>
+
+<script>
+    
+
+    const squares= document.querySelectorAll('.Colorsquare')
+    const timesClicked={'red': 0, 'yellow': 0, 'green': 0}
+    squares.forEach(sq =>{
+        sq.onclick=()=>{
+            timesClicked[sq.id]+=1
+            sq.innerText=timesClicked[sq.id]
+        }    
+    })
+
+    function clearscore(){
+        timesClicked.red = 0
+        timesClicked.yellow = 0
+        timesClicked.green = 0
+        squares.forEach(sq=>{
+            sq.innerText=''
+        })
+    }
+    const cleargamebutton= document.getElementById('cleargame')
+    cleargamebutton.onclick=()=> clearscore() 
+</script>
+</body>
+</html>
